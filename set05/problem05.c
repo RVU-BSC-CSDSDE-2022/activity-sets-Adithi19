@@ -23,25 +23,18 @@ int input() {
   return num;
 }
 
-float power(float y, int p) {
-  float pow,i;
-  pow=1.0;
-  for(i=1;i<=p;i++) {
-    pow=y*pow;
-  }
-  return pow;
-}
-
 float borga_x(int x) {
-  float borga,y,fac;
+  float borga,y,fac,pow;
   int i;
   fac=1.0;
+  pow=1.0;
   y=0.0;
   borga=0.0;
   i=1;
   while(1) {
-    y=power(x,i-1)/fac;
+    y=pow/fac;
     fac=fac*(i*2)*(i*2+1);
+    pow=pow*x;
     i++;
     borga=y+borga;
     if(y<0.000001) {
