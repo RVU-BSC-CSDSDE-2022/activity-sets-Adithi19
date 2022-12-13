@@ -33,6 +33,7 @@ int main() {
   initialize_sides(n,&p);
   find_perimeter(n,&p);
   output(p);
+  return 0;
 }
 
 int input_n() {
@@ -81,5 +82,5 @@ void find_perimeter(int n, Polygon* p) {
 }
 
 void output(Polygon p) {
-  printf("The perimeter of the polynomial is %f", p.perimeter);
+  printf("The perimeter of the polynomial is %f \n", p.perimeter);
 }
