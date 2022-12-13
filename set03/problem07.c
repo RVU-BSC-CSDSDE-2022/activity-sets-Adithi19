@@ -21,7 +21,6 @@ int main() {
   Line l;
   l=input_line();
   find_length(&l);
-  printf("%f,%f,%f,%f",l.p1.x,l.p1.y,l.p2.x,l.p2.y);
   output(l);
   return 0;
 }

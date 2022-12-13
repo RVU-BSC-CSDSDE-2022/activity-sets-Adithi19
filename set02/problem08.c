@@ -7,7 +7,9 @@ typedef struct _triangle {
 } Triangle;
 
 int input_n();
+Triangle input_triangle();
 void input_n_triangles(int n, Triangle t[n]);
+void find_area(Triangle *t);
 void find_n_areas(int n, Triangle t[n]);
 Triangle find_smallest_triangle(int n, Triangle t[n]);
 void output(int n, Triangle t[n], Triangle smallest);
@@ -30,20 +32,30 @@ int input_n() {
   return elements;
 }
 
+Triangle input_triangle() {
+  Triangle tri;
+  printf("Enter the base of the triangle: ");
+  scanf("%f",&tri.base);
+  printf("Enter the altitude of the triangle: ");
+  scanf("%f",&tri.altitude);
+  return tri;
+}
+
 void input_n_triangles(int n, Triangle t[n]) {
   int i;
   for(i=0;i<n;i++) {
-    printf("Enter the base of the triangle: ");
-    scanf("%f",&t[i].base);
-    printf("Enter the altitude of the triangle: ");
-    scanf("%f",&t[i].altitude);
+    t[i] = input_triangle();
   }
+}
+
+void find_area(Triangle *t) {
+  t->area=(t->base * t->altitude)/2;
 }
 
 void find_n_areas(int n, Triangle t[n]) {
   int i;
   for(i=0;i<n;i++) {
-    t[i].area=(t[i].base * t[i].altitude)/2;
+    find_area(&t[i]);
   }
 }
 
@@ -63,13 +75,13 @@ void output(int n, Triangle t[n], Triangle smallest) {
   int i;
   for(i=0;i<n;i++) {
     if(i==n-1) {
-      printf("(%f,%f) is the triangle having base %f, height %f and area %f \n",t[i].base,t[i].altitude,smallest.base,smallest.altitude,smallest.area);
+      printf("(%.2f,%.2f) is the triangle having base %.2f, height %.2f and area %.2f \n",t[i].base,t[i].altitude,smallest.base,smallest.altitude,smallest.area);
     }
     else if(i==0) {
-      printf("The smallest triangle out of triangles with base and height (%f,%f) , ",t[i].base,t[i].altitude);
+      printf("The smallest triangle out of triangles with base and height (%.2f,%.2f) , ",t[i].base,t[i].altitude);
     }
     else {
-      printf("(%f,%f) , ",t[i].base,t[i].altitude);
+      printf("(%.2f,%.2f) , ",t[i].base,t[i].altitude);
     }
   }
 }

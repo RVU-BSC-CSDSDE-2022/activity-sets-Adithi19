@@ -48,5 +48,5 @@ float odd_average(int n, int a[n]) {
 }
 
 void output(float avg) {
-  printf("Average of the odd number in the array is %f \n",avg);
+  printf("Average of the odd number in the array is %.0f \n",avg);
 }

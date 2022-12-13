@@ -4,7 +4,6 @@
 
 int input();
 float borga_x(int x);
-float power(float y, int p);
 void output(int x, float result);
 
 int main() {
