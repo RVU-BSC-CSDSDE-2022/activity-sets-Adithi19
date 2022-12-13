@@ -14,7 +14,7 @@ typedef struct side {
 
 typedef struct polygon {
     Side sides[100];
-    Point p[100];
+    Point pt[100];
     float perimeter;
 } Polygon;
 
@@ -29,10 +29,10 @@ void output(Polygon p);
 int main() {
   int n;
   n=input_n();
-  Polygon poly;
-  initialize_sides(n,&poly);
-  find_perimeter(n,&poly);
-  output(poly);
+  Polygon p;
+  initialize_sides(n,&p);
+  find_perimeter(n,&p);
+  output(p);
 }
 
 int input_n() {
@@ -43,10 +43,10 @@ int input_n() {
 }
 
 Point input_point(int i) {
-  Point pt;
+  Point pnt;
   printf("Enter the point %d (x,y): ",i);
-  scanf("%f %f",&pt.x,&pt.y);
-  return pt;
+  scanf("%f %f",&pnt.x,&pnt.y);
+  return pnt;
 }
 
 // void input_n_points(int n, Point p[n]) {
