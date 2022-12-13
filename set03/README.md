@@ -179,8 +179,8 @@ typedef struct side {
 } Side;
 
 typedef struct polygon {
-    Side sides;
-    Point p[100];
+    Side sides[n];
+    Point p[n];
     float perimeter;
 } Polygon;
 
