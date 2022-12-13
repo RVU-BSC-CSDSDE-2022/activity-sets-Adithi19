@@ -63,5 +63,5 @@ void smallest_frac(Fraction f1, Fraction f2, Fraction f3, Fraction *small) {
 }
 
 void output(Fraction f1, Fraction f2, Fraction f3, Fraction result) {
-  printf("The smallest of %d/%d, %d/%d and %d/%d is %d/%d",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,result.num,result.den);
+  printf("The smallest of %d/%d, %d/%d and %d/%d is %d/%d \n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,result.num,result.den);
 }
