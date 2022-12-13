@@ -173,23 +173,22 @@ typedef struct point {
     float start_end_x, start_end_y;
 } Point;
 
-typedef struct line {
-    Point p;
+typedef struct side {
+    Point p1,p2;
     float distance;
-} Line;
+} Side;
 
 typedef struct polygon {
-    int sides;
-    Line l[100];
+    Side sides;
+    Point p[100];
     float perimeter;
 } Polygon;
 
 int input_n();
-Line input_line(int n);
-void input_n_lines(int n, Line *l);
-int input_polygon(Polygon *p);
+Point input_point();
+void input_n_points(int n, Point p[n]);
+void initialize_sides( Polygon *p);
 float find_distance(Point a, Point b);
-void find_n_distance(int n, Line *l);
 void find_perimeter(Polygon* p);
 void output(Polygon p);
 ```
