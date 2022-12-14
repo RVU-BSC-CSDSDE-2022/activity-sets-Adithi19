@@ -20,14 +20,13 @@ typedef struct polygon {
 
 int input_n();
 Point input_point(int i);
-// void input_n_points(int n, Point p[n]);
 void initialize_sides(int n, Polygon *p);
 float find_distance(Point a, Point b);
 void find_perimeter(int n, Polygon* p);
 void output(Polygon p);
 
 int main() {
-  int n;
+  int n,i;
   n=input_n();
   Polygon p;
   initialize_sides(n,&p);
@@ -49,13 +48,6 @@ Point input_point(int i) {
   scanf("%f %f",&pnt.x,&pnt.y);
   return pnt;
 }
-
-// void input_n_points(int n, Point p[n]) {
-//   int i;
-//   for(i=0;i<n;i++) {
-//     p[i] = input_point(i+1);
-//   }
-// }
 
 void initialize_sides(int n, Polygon *p) {
   int i;

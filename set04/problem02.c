@@ -7,7 +7,7 @@ typedef struct {
 } Fraction;
 
 Fraction input_frac();
-void smallest_frac(Fraction f1, Fraction f2, Fraction f3, Fraction *result);
+Fraction smallest_frac(Fraction f1, Fraction f2, Fraction f3);
 void output(Fraction f1, Fraction f2, Fraction f3, Fraction result);
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
   f1=input_frac();
   f2=input_frac();
   f3=input_frac();
-  smallest_frac(f1, f2, f3, &result);
+  result=smallest_frac(f1, f2, f3);
   output(f1, f2, f3, result);
   return 0;
 }
@@ -28,7 +28,8 @@ Fraction input_frac() {
   return fn;
 }
 
-void smallest_frac(Fraction f1, Fraction f2, Fraction f3, Fraction *small) {
+Fraction smallest_frac(Fraction f1, Fraction f2, Fraction f3) {
+  Fraction small;
   int gcd,cm_den,i;
   int nm1,nm2,nm3;
   for(i=1;i<=f1.den || i<=f2.den || i<=f3.den; i++) {
@@ -49,17 +50,15 @@ void smallest_frac(Fraction f1, Fraction f2, Fraction f3, Fraction *small) {
     }
   }
   if(nm1<nm2 && nm1<nm3) {
-    small->num = f1.num;
-    small->den = f1.den;
+    small = f1;
   }
   else if(nm2<nm3) {
-    small->num = f2.num;
-    small->den = f2.den;
+    small = f2;
   }
   else {
-    small->num = f3.num;
-    small->den = f3.den;
+    small = f3;
   }
+  return small;
 }
 
 void output(Fraction f1, Fraction f2, Fraction f3, Fraction result) {
