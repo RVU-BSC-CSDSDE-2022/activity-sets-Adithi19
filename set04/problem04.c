@@ -59,5 +59,5 @@ void output(int n, float a[n], float x, float result) {
   for(i=0;i<n;i++) {
     printf("%.0f, ",a[i]);
   }
-  printf("%.0f) = %.0f",a[i],result);
+  printf("%.0f) = %.0f \n",a[i],result);
 }
