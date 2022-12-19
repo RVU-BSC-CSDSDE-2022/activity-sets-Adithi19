@@ -23,6 +23,14 @@ void input_string(char a[100]) {
 
 int count_words(char *string) {
   int count=1,i=0;
+  char constant[]=" ";
+  char *token=(string,constant);
+  printf( " %s\n", token );
+  // while( token != NULL ) {
+  //     printf( " %s\n", token );
+    
+  //     token = strtok(NULL, constant);
+  //  }
   while(string[i]!='\0') {
     if(string[i]==' ') {
       count++;
