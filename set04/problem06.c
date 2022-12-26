@@ -22,24 +22,18 @@ void input_string(char a[100]) {
 }
 
 int count_words(char *string) {
-  int count=1,i=0;
+  int count=0;
+  char copystr[100];
+  strcpy(copystr,string);
   char constant[]=" ";
-  char *token=(string,constant);
-  printf( " %s\n", token );
-  // while( token != NULL ) {
-  //     printf( " %s\n", token );
-    
-  //     token = strtok(NULL, constant);
-  //  }
-  while(string[i]!='\0') {
-    if(string[i]==' ') {
+  char *token=strtok(copystr,constant);
+  while( token != NULL ) {
       count++;
-    }
-    i++;
-  }
+      token = strtok(NULL, constant);
+   }
   return count;
 }
 
 void output(char *string, int no_words) {
-  printf("The number of words in \"%s\" is %d \n",string,no_words);
+    printf("The number of words in '%s' is %d \n",string,no_words);
 }
