@@ -8,8 +8,8 @@ void output(char *a, char *reverse_a);
 
 int main() {
   char string[100],rev_string[100];
-  input_string(&string);
-  str_reverse(string,&rev_string);
+  input_string(string);
+  str_reverse(string,rev_string);
   output(string,rev_string);
   return 0;
 }

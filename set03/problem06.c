@@ -7,10 +7,10 @@ int sub_str_index(char* string, char* substring);
 void output(char *string, char *substring, int index);
 
 int main() {
-  char* a[100];
-  char* b[100];
+  char a[100];
+  char b[100];
   int index;
-  input_string(&a,&b);
+  input_string(a,b);
   index=sub_str_index(a,b);
   output(a,b,index);
   return 0;
@@ -28,21 +28,19 @@ int sub_str_index(char* string, char* substring) {
   position=0;
   for(i=0;string[i]!='\0';i++) {
     index=0;
-    if(string[i]==substring[0]) {
-      for(k=i;substring[index]!='\0';k++) {
-        if(string[k]==substring[index]) {
-          position=i;
-        }
-        else {
-          break;
-        }
-        index++;
-      }
+    k=i;
+    while(string[k]==substring[index]) {
+      position=i;
+      k++;
+      index++;
+    }
+    if(substring[index]=='\0') {
+      break;
     }
   }
   return position;
 }
 
 void output(char *string, char *substring, int index) {
-  printf("The index of %s in %s is %d \n",string,substring,index);
+  printf("The index of \'%s\' in \'%s\' is %d \n",substring,string,index);
 }

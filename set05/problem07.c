@@ -9,7 +9,7 @@ void output(int res);
 int main() {
   char name[100];
   int res;
-  input(&name);
+  input(name);
   res=has_nice_name(name);
   output(res);
   return 0;
