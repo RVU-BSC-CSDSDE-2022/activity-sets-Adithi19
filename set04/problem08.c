@@ -86,5 +86,5 @@ Fraction add_n_fractions(int n, Fraction f[n]) {
 }
 
 void output(int n, Fraction f[n], Fraction sum) {
-  printf("%d %d",sum.num,sum.den);
+  printf("%d %d \n",sum.num,sum.den);
 }

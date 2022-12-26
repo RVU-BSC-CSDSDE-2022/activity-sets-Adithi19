@@ -10,7 +10,7 @@ void output(char *string, int no_words);
 int main() {
   char a[100];
   int no_words;
-  input_string(&a);
+  input_string(a);
   no_words=count_words(a);
   output(a,no_words);
   return 0;
