@@ -57,34 +57,38 @@ int find_gcd(int a, int b) {
 }
 
 Fraction add_fractions(Fraction f1, Fraction f2) {
-  Fraction res;
+  Fraction res={0,0};
+  int i,gcd,lcm;
+  gcd=find_gcd(f1.den,f2.den);
+  lcm=(f1.den*f2.den)/gcd;
+    for(i=0;i<=lcm;i++) {
+    if(f1.den*i==lcm) {
+      f1.num=f1.num*i;
+      f1.den=f1.den*i;
+    }
+    if(f2.den*i==lcm) {
+      f2.num=f2.num*i;
+      f2.den=f2.den*i;
+    }
+  }
   res.num=f1.num+f2.num;
   res.den=f1.den;
   return res;
 }
 
 Fraction add_n_fractions(int n, Fraction f[n]) {
-  int i,lcm,gcd,k;
   Fraction result={f[0].num,f[0].den};
-  Fraction f1[n];
+  int i;
   for(i=1;i<n;i++) {
-    gcd=find_gcd(result.den,f[i].den);
-    lcm = (result.den*f[i].den)/gcd;
-    for(k=0;k<lcm;k++) {
-      if(result.den*i==lcm) {
-        result.num=result.num*i;
-        result.den=result.den*i;
-      }
-      if(f[i].den*i==lcm) {
-        f1[i].num=f[i].num*i;
-        f1[i].den=f[i].den*i;
-      }
-    }
-    result=add_fractions(result,f1[i]);
+    result=add_fractions(f[i],result);
   }
   return result;
 }
 
 void output(int n, Fraction f[n], Fraction sum) {
-  printf("%d %d \n",sum.num,sum.den);
+  int i;
+  for(i=0;i<n-1;i++) {
+    printf("%d/%d + ",f[i].num,f[i].den);
+  }
+  printf("%d/%d = %d/%d \n",f[i].num,f[i].den,sum.num,sum.den);
 }
