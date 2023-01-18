@@ -26,7 +26,9 @@ int nCr(int n, int r) {
   int ncr;
   int n_fac,r_fac,diff_fac,diff,i;
   diff=n-r;
-  n_fac=r_fac=diff_fac=1;
+  n_fac=1;
+  r_fac=1;
+  diff_fac=1;
   for(i=1;i<=n;i++) {
     n_fac=n_fac*i;
   }

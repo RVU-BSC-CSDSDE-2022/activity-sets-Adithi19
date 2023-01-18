@@ -14,7 +14,6 @@ typedef struct side {
 
 typedef struct polygon {
     Side sides[100];
-    Point pt[100];
     float perimeter;
 } Polygon;
 

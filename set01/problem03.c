@@ -18,7 +18,7 @@ int main() {
 int input()  {
   int digit;
   printf("Enter a number: ");
-  scanf("%d", &digit);
+  if(scanf("%d",&digit)){};
   return digit;
 }
 
