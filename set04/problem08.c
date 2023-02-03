@@ -61,18 +61,10 @@ Fraction add_fractions(Fraction f1, Fraction f2) {
   int i,gcd,lcm;
   gcd=find_gcd(f1.den,f2.den);
   lcm=(f1.den*f2.den)/gcd;
-    for(i=0;i<=lcm;i++) {
-    if(f1.den*i==lcm) {
-      f1.num=f1.num*i;
-      f1.den=f1.den*i;
-    }
-    if(f2.den*i==lcm) {
-      f2.num=f2.num*i;
-      f2.den=f2.den*i;
-    }
-  }
+  f1.num = f1.num * lcm/f1.den;
+  f2.num = f2.num * lcm/f2.den;
   res.num=f1.num+f2.num;
-  res.den=f1.den;
+  res.den=lcm;
   return res;
 }
 
@@ -81,6 +73,12 @@ Fraction add_n_fractions(int n, Fraction f[n]) {
   int i;
   for(i=1;i<n;i++) {
     result=add_fractions(f[i],result);
+  }
+  for(i=1;i<=result.num || i<=result.den; i++) {
+    if(result.num%i==0 && result.den%i==0) {
+      result.num = result.num/i;
+      result.den = result.den/i;
+    }
   }
   return result;
 }

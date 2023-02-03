@@ -25,15 +25,11 @@ int is_composite(int n) {
   int check,i,count;
   count=0;
   check=0;
-  for (i=1;i<=n;i++) {
+  for (i=2;i<n;i++) {
     if(n%i==0) {
-      count=count+1;
+      return 1;
     }
-    }
-  if(count>2) {
-    check=1;
   }
-  return check;
 }
 
 void output(int n, int result) {

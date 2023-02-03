@@ -50,7 +50,7 @@ Point input_point(int i) {
 
 void initialize_sides(int n, Polygon *p) {
   int i;
-  p->sides[0].p1=input_point(i+1);
+  p->sides[0].p1=input_point(1);
   p->sides[n-1].p2=p->sides[0].p1;
   for(i=1;i<n;i++) {
     p->sides[i-1].p2=input_point(i+1);

@@ -31,28 +31,20 @@ Fraction input_frac() {
 Fraction smallest_frac(Fraction f1, Fraction f2, Fraction f3) {
   Fraction small;
   int gcd,cm_den,i;
-  int nm1,nm2,nm3;
+  int num1, num2, num3;
   for(i=1;i<=f1.den || i<=f2.den || i<=f3.den; i++) {
     if(f1.den%i==0 && f2.den%i==0 && f3.den%i==0) {
       gcd = i;
     }
   }
   cm_den = (f1.den*f2.den*f3.den)/gcd;
-  for(i=1;i<cm_den;i++) {
-    if(f1.den*i==cm_den) {
-      nm1=f1.num*i;
-    }
-    if(f2.den*i==cm_den) {
-      nm2=f2.num*i;
-    }
-    if(f3.den*i==cm_den) {
-      nm3=f3.num*i;
-    }
-  }
-  if(nm1<nm2 && nm1<nm3) {
+  num1 = f1.num * cm_den/f1.den;
+  num2 = f2.num * cm_den/f2.den;
+  num3 = f3.num * cm_den/f3.den;
+  if(num1<num2 && num1<num3) {
     small = f1;
   }
-  else if(nm2<nm3) {
+  else if(num2<num3) {
     small = f2;
   }
   else {

@@ -23,12 +23,14 @@ int input_array_size() {
   scanf("%d",&digit);
   return digit;
 }
+
 void input_array(int n, int a[n]) {
   printf("Input the array: ");
   for(int i=0; i<n; i++) {
     scanf("%d",&a[i]);
   }
 }
+
 int sum_n_array(int n, int a[n]) {
   int add,i;
   add=0;
@@ -36,7 +38,8 @@ int sum_n_array(int n, int a[n]) {
     add=add+a[i];
   }
   return add;
-  }
+}
+
 void output(int n, int a[n], int sum) {
   int i;
   for(i=0;i<n-1;i++) {

@@ -26,7 +26,7 @@ int stringcompare(char *string1, char *string2) {
   int i;
   for(i=0;(string1[i]!='\0' || string2[i]!='\0') && string1[i]-string2[i]==0;i++);
   return string1[i]-string2[i];
-  }
+}
   
   
 void output(char *string1, char *string2, int result) {
@@ -36,7 +36,7 @@ void output(char *string1, char *string2, int result) {
   else if (result<0){
     printf("%s is greater than %s \n",string2, string1);
   }
-  else if (result==0){
+  else {
     printf("The strings are equal \n");
   }
 }

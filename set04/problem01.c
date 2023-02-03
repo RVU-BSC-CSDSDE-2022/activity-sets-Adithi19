@@ -30,18 +30,16 @@ void add(int num1, int den1, int num2, int den2, int *res_num, int *res_den) {
     }
   }
   lcm = (den1*den2)/gcd;
-  for(i=0;i<lcm;i++) {
-    if(den1*i==lcm) {
-      den1=den1*i;
-      num1=num1*i;
-    }
-    if(den2*i==lcm) {
-      den2=den2*i;
-      num2=num2*i;
+  num1=num1*(lcm/den1);
+  num2=num2*(lcm/den2);
+  *res_num = num1 + num2;
+  *res_den = lcm;
+  for(i=1;i<=*res_num || i<=*res_den; i++) {
+    if(*res_num%i==0 && *res_den%i==0) {
+      *res_num = *res_num/i;
+      *res_den = *res_den/i;
     }
   }
-  *res_num = num1 + num2;
-  *res_den = den1;
 }
 
 void output(int num1, int den1, int num2, int den2, int res_num, int res_den) {

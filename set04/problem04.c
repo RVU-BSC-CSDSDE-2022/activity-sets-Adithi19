@@ -46,9 +46,9 @@ float input_x() {
 float evaluate_polynomial(int n, float a[n], float x) {
   int i;
   float res;
-  res = 0;
-  for(i=0;i<n+1;i++) {
-    res = res + (pow(x,i) * a[i]);
+  res = a[0];
+  for(i=1;i<n+1;i++) {
+    res = res * x + a[i];
   }
   return res;
 }

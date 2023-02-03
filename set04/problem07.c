@@ -44,18 +44,10 @@ Fraction add_fractions(Fraction f1, Fraction f2) {
   int gcd,lcm;
   gcd=find_gcd(f1.den,f2.den);
   lcm=(f1.den*f2.den)/gcd;
-  for(i=0;i<=lcm;i++) {
-    if(f1.den*i==lcm) {
-      f3.num=f1.num*i;
-      f3.den=f1.den*i;
-    }
-    if(f2.den*i==lcm) {
-      f4.num=f2.num*i;
-      f4.den=f2.den*i;
-    }
-  }
-  result.num = f3.num + f4.num;
-  result.den = f3.den;
+  f1.num = f1.num * lcm/f1.den;
+  f2.num = f2.num * lcm/f2.den;
+  result.num = f1.num + f2.num;
+  result.den = lcm;
   for(i=1;i<=result.num || i<=result.den; i++) {
     if(result.num%i==0 && result.den%i==0) {
       result.num = result.num/i;
